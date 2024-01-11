@@ -1,0 +1,45 @@
+<h3 class="text-center">Reactive Form</h3>
+
+<div class="container mt-5">
+    <form [formGroup]="userRegForm" (ngSubmit)="save()">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="id1" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="id1" formControlName="firstName">
+                <div class="invalid-feedback d-block"
+                    *ngIf="userRegForm.get('firstName')?.touched||userRegForm.get('firstName')?.dirty">
+                    <div class="invalid-feedback d-block" *ngIf="userRegForm.get('firstName')?.errors?.['required']">
+                        Please provide a valid Input.
+                    </div>
+                    <div class="invalid-feedback d-block" *ngIf="userRegForm.get('firstName')?.errors?.['minlength']">
+                        Minimum Five characters are required.
+                    </div>
+                    <div class="invalid-feedback d-block" *ngIf="userRegForm.get('firstName')?.errors?.['maxlength']">
+                        Maximum 25 characters are required.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="id2" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="id2" formControlName="lastName">
+                <div *ngIf="lastName?.touched||lastName?.dirty">
+                    <div class="invalid-feedback d-block" *ngIf="lastName?.errors?.['required']">
+                        Please provide a valid Input.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <button type="submit" class="btn btn-primary ms-2" (click)="setData()">SetData</button>
+        <button type="submit" class="btn btn-primary ms-2" (click)="patch()">PatchData</button>
+
+        <button type="submit" class="btn btn-primary ms-2" (click)="Reset()">Reset</button>
+    </form>
+</div>
+
+<p>Form value:{{userRegForm.value|json}}</p>
+<p>Form touched:{{userRegForm.touched}}</p>
+<p>Form untouched:{{userRegForm.untouched}}</p>
+<p>Form Dirty:{{userRegForm.dirty}}</p>
+<p>Form Pristine:{{userRegForm.pristine}}</p>

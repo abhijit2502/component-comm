@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 border">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Parent Message</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" [(ngModel)]="childmessage">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="sendData()">Send</button>
+              </div>
+              <h4>Data from Parent Component :{{msgfromparentcomponent}}</h4>
+        </div>
+    </div>
+</div>

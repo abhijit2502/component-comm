@@ -1,0 +1,25 @@
+<p class="text-center">employee-list works!</p>
+<div class="container">
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Employee Name</th>
+                    <th scope="col">EmplooyeeDesignation</th>
+                    <th scope="col">Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employeeList of filteredList;let i=index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{employeeList.EmployeeName}}</td>
+                        <td>{{employeeList.Designation}}</td>
+                        <td>{{employeeList.salary}}</td>
+                
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<app-child-employee-list (childEvent)="filterEmployees($event)"></app-child-employee-list>

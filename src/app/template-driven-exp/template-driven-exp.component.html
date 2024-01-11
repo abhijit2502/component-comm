@@ -1,0 +1,29 @@
+<h3 class="text-center">template-driven-exp works!</h3>
+<div class="container mt-2 border p-2">
+    <form #userForm="ngForm" (ngSubmit)="save(userForm)">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="exampleInputEmail1" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="id1" name="fname" ngModel>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="exampleInputPassword1" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="id2" name="lname" ngModel>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="exampleInputPassword1" class="form-label">Mobile No</label>
+                <input type="text" class="form-control" id="id2" name="mobno" ngModel>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="exampleInputPassword1" class="form-label">Email address</label>
+                <input type="text" class="form-control" id="id3" name="email" ngModel>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<p>First Name:{{userForm.value | json}}</p>
+<p>Form Dirty:{{userForm.dirty}}</p>
+<p>Form pristine:{{userForm.pristine}}</p>
+<p>Form submitted:{{userForm.submitted}}</p>
